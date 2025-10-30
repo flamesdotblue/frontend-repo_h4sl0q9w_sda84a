@@ -2,37 +2,30 @@ import Hero3D from './components/Hero3D';
 import ServicesGrid from './components/ServicesGrid';
 import TestimonialsFAQ from './components/TestimonialsFAQ';
 import Footer from './components/Footer';
+import AuthForm from './components/AuthForm';
+import MiniRouter from './components/MiniRouter';
 
 export default function App() {
-  return (
+  const landing = (
     <div className="min-h-screen bg-white font-inter antialiased">
       <Hero3D />
       <HowItWorks />
       <ServicesGrid />
+      <AuthForm />
       <TestimonialsFAQ />
       <Footer />
     </div>
   );
+
+  return <MiniRouter landing={landing} />;
 }
 
 function HowItWorks() {
   const steps = [
-    {
-      title: 'Post a Job',
-      desc: 'Describe your certification or customs requirement and set a budget.',
-    },
-    {
-      title: 'Get Proposals',
-      desc: 'Verified brokers submit proposals. Compare expertise, ratings, and bids.',
-    },
-    {
-      title: 'Secure Escrow',
-      desc: 'Fund the project in escrow. Payments are released on successful completion.',
-    },
-    {
-      title: 'Track & Approve',
-      desc: 'Chat, exchange documents, and track status until verification is complete.',
-    },
+    { title: 'Post a Job', desc: 'Describe your certification or customs requirement and set a budget.' },
+    { title: 'Get Proposals', desc: 'Verified brokers submit proposals. Compare expertise, ratings, and bids.' },
+    { title: 'Secure Escrow', desc: 'Fund the project in escrow. Payments are released on successful completion.' },
+    { title: 'Track & Approve', desc: 'Chat, exchange documents, and track status until verification is complete.' },
   ];
 
   return (
