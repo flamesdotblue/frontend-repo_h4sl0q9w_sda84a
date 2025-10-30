@@ -2,22 +2,17 @@ import Hero3D from './components/Hero3D';
 import ServicesGrid from './components/ServicesGrid';
 import TestimonialsFAQ from './components/TestimonialsFAQ';
 import Footer from './components/Footer';
-import AuthForm from './components/AuthForm';
-import MiniRouter from './components/MiniRouter';
 
 export default function App() {
-  const landing = (
+  return (
     <div className="min-h-screen bg-white font-inter antialiased">
       <Hero3D />
       <HowItWorks />
       <ServicesGrid />
-      <AuthForm />
       <TestimonialsFAQ />
       <Footer />
     </div>
   );
-
-  return <MiniRouter landing={landing} />;
 }
 
 function HowItWorks() {

@@ -5,12 +5,11 @@ import { Rocket, Briefcase } from 'lucide-react';
 function AnimatedNumber({ value, duration = 1500 }) {
   const [display, setDisplay] = useState(0);
   useEffect(() => {
-    let start = 0;
     const startTime = performance.now();
     const tick = (now) => {
       const progress = Math.min((now - startTime) / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(start + (value - start) * eased);
+      const current = Math.floor(value * eased);
       setDisplay(current);
       if (progress < 1) requestAnimationFrame(tick);
     };
@@ -23,24 +22,27 @@ function AnimatedNumber({ value, duration = 1500 }) {
 export default function Hero3D() {
   return (
     <section className="relative min-h-[84vh] w-full overflow-hidden bg-slate-950">
+      {/* 3D Cover */}
       <div className="absolute inset-0">
         <Spline
-          scene="https://prod.spline.design/qQUip0dJPqrrPryE/scene.splinecode"
+          scene="https://prod.spline.design/8nsoLg1te84JZcE9/scene.splinecode"
           style={{ width: '100%', height: '100%' }}
         />
       </div>
 
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/60 to-slate-950 pointer-events-none" />
+      {/* Soft gradient to improve text contrast. Pointer events disabled per spec. */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/60 to-slate-950" />
 
+      {/* Content */}
       <div className="relative mx-auto flex max-w-7xl flex-col items-center px-4 pt-24 text-center text-white sm:pt-28 md:pt-32">
         <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-xs font-medium tracking-wide text-sky-200 backdrop-blur">
           <ShieldBadge /> Trusted by businesses & licensed brokers
         </span>
         <h1 className="mt-2 text-3xl font-semibold leading-tight text-white sm:text-5xl md:text-6xl">
-          Simplifying Global Trade Compliance
+          Unified Trade Compliance & Broker Marketplace
         </h1>
         <p className="mt-4 max-w-2xl text-base text-slate-300 sm:text-lg">
-          One unified portal for IEC, AEO, BIS, EPR certifications, customs documentation, and broker-led services.
+          Post jobs, compare broker bids, manage documents, chat in real-time, and handle escrow payments — all in one place.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
